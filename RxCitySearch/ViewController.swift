@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController, UITableViewDataSource {
     
     var shownCities = [String]()
     let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
+    
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +24,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        searchBar
+            .rx_text
+            .subscribeNext { [unowned self] (query) in
+                self.shownCities = self.allCities.filter { $0.hasPrefix(query) }
+                self.tableView.reloadData()
+            }
+            .addDisposableTo(disposeBag)
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
