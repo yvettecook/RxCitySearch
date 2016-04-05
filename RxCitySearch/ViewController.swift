@@ -26,6 +26,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         searchBar
             .rx_text
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { $0.characters.count > 0 }
             .subscribeNext { [unowned self] (query) in
                 self.shownCities = self.allCities.filter { $0.hasPrefix(query) }
                 self.tableView.reloadData()
