@@ -13,6 +13,7 @@
 		1ABDB29E1CB3951F00D3FF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDB29D1CB3951F00D3FF87 /* Assets.xcassets */; };
 		1ABDB2A11CB3951F00D3FF87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDB29F1CB3951F00D3FF87 /* LaunchScreen.storyboard */; };
 		1ABDB2AC1CB3951F00D3FF87 /* RxCitySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDB2AB1CB3951F00D3FF87 /* RxCitySearchTests.swift */; };
+		28A8338A89B06FA496FACB32 /* Pods_RxCitySearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B986A2EA0EDD39CEBF01E46 /* Pods_RxCitySearch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,9 @@
 		1ABDB2A71CB3951F00D3FF87 /* RxCitySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxCitySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABDB2AB1CB3951F00D3FF87 /* RxCitySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCitySearchTests.swift; sourceTree = "<group>"; };
 		1ABDB2AD1CB3951F00D3FF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33513FF4B994D3E627D47B82 /* Pods-RxCitySearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCitySearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCitySearch/Pods-RxCitySearch.release.xcconfig"; sourceTree = "<group>"; };
+		4B986A2EA0EDD39CEBF01E46 /* Pods_RxCitySearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCitySearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		713CF6AFC75D0D40E1FB30B1 /* Pods-RxCitySearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCitySearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxCitySearch/Pods-RxCitySearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A8338A89B06FA496FACB32 /* Pods_RxCitySearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 				1ABDB2951CB3951F00D3FF87 /* RxCitySearch */,
 				1ABDB2AA1CB3951F00D3FF87 /* RxCitySearchTests */,
 				1ABDB2941CB3951F00D3FF87 /* Products */,
+				3E7BE50AACD40E1FC4EFEC57 /* Pods */,
+				2DE5830606D15964FF9FB90D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,23 @@
 			path = RxCitySearchTests;
 			sourceTree = "<group>";
 		};
+		2DE5830606D15964FF9FB90D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B986A2EA0EDD39CEBF01E46 /* Pods_RxCitySearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E7BE50AACD40E1FC4EFEC57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				713CF6AFC75D0D40E1FB30B1 /* Pods-RxCitySearch.debug.xcconfig */,
+				33513FF4B994D3E627D47B82 /* Pods-RxCitySearch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ABDB2B01CB3951F00D3FF87 /* Build configuration list for PBXNativeTarget "RxCitySearch" */;
 			buildPhases = (
+				2F377FE5B2156909DE21F859 /* Check Pods Manifest.lock */,
 				1ABDB28F1CB3951F00D3FF87 /* Sources */,
 				1ABDB2901CB3951F00D3FF87 /* Frameworks */,
 				1ABDB2911CB3951F00D3FF87 /* Resources */,
+				A34B5C6024B27061205F1388 /* Embed Pods Frameworks */,
+				A8125EC819C63A3746DF6A63 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F377FE5B2156909DE21F859 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A34B5C6024B27061205F1388 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCitySearch/Pods-RxCitySearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8125EC819C63A3746DF6A63 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCitySearch/Pods-RxCitySearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1ABDB28F1CB3951F00D3FF87 /* Sources */ = {
@@ -327,6 +402,7 @@
 		};
 		1ABDB2B11CB3951F00D3FF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 713CF6AFC75D0D40E1FB30B1 /* Pods-RxCitySearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxCitySearch/Info.plist;
@@ -338,6 +414,7 @@
 		};
 		1ABDB2B21CB3951F00D3FF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33513FF4B994D3E627D47B82 /* Pods-RxCitySearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxCitySearch/Info.plist;
@@ -390,6 +467,7 @@
 				1ABDB2B21CB3951F00D3FF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ABDB2B31CB3951F00D3FF87 /* Build configuration list for PBXNativeTarget "RxCitySearchTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +476,7 @@
 				1ABDB2B51CB3951F00D3FF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
